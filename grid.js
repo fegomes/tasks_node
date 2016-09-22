@@ -1,5 +1,45 @@
+'use strict';
+/// <reference path="typings/tsd.d.ts"/>
+
 const Grid = require('editable-grid');
 const $ = require('jquery');
+
+let dataGrid = [
+        {
+            id: 'id-1',
+            WBS: '1',
+            Name: 'Projeto Xpto',
+            Start: '01/01/2016',
+            End: '30/12/2016',
+            children: [
+                {
+                    id: 'id-2',
+                    WBS: '1.1',
+                    Name: 'Analise',
+                    Start: '01/01/2016',
+                    End: '05/03/2016',
+                    children: [
+                        {
+                            id: 'id-3',
+                            WBS: '1.1.1',
+                            Name: 'Requisitos',
+                            Start: '01/01/2016',
+                            End: '05/03/2016',
+                            children: 'empty'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'id-10',
+            WBS: '2',
+            Name: 'Desenvolvimento',
+            Start: '01/01/2017',
+            End: '05/03/2017',
+            children: 'empty'
+        }
+    ];
 
 
 var grid = new Grid({
@@ -29,52 +69,27 @@ var grid = new Grid({
     el: $('body'),
     columns: [
         {
-            id: 'a',
-            title: 'a',
-            width: '33.3%'
+            id: 'WBS',
+            title: 'WBS',
+            width: '10%'
         },
         {
-            id: 'b',
-            title: 'b',
-            width: '33.3%'
+            id: 'Name',
+            title: 'Name',
+            width: '40%'
         },
         {
-            id: 'c',
-            title: 'c',
-            width: '33.3%'
+            id: 'Start',
+            title: 'Start',
+            width: '25%'
+        },
+        {
+            id: 'End',
+            title: 'End',
+            width: '25%'
         }
     ],
-    data: [
-        {
-            id: 'id-1',
-            a: 'fernando',
-            b: 'b',
-            c: 'c',
-            children: [
-                {
-                    id: 'id-2',
-                    a: 'a-1',
-                    b: 'b-1',
-                    c: 'c-1',
-                    children: [
-                        {
-                            id: 'id-3',
-                            a: 'a-2',
-                            b: 'b-2',
-                            c: 'c-2'
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 'id-4',
-            a: 'a',
-            b: 'b',
-            c: 'c',
-            children: 'empty'
-        }
-    ]
+    data: dataGrid
     });
 
 grid.render();

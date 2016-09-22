@@ -1,5 +1,10 @@
 {
-  "name"    : "tasks-node",
-  "version" : "0.0.1",
-  "main"    : "main.js"
+  "name": "tasks-node",
+  "version": "0.0.1",
+  "main": "main.js",
+  "devDependencies": {
+    "editable-grid": "^2.0.5",
+    "jquery": "^3.1.0",
+    "typings": "^1.3.3"
+  }
 }
